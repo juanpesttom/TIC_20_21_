@@ -15,7 +15,8 @@ int fecha(int n)
     
     if (n > 7 || n < 1)
         return -1;
-    printf("%s\n", fechar[n])
+    printf("%s\n", fechas[n]);
+    return n;
 }
 int main(int argc, char *argv[])
 {

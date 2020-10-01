@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-#define EUR 1.13
+#define EUR 0.85
 
-int cambio(int n)
+float cambio(float n)
 {
     return n*EUR;
 }
 int main(int argc, char *argv[])
 {
-    printf("%d\n", cambio(3));
+    printf("%f\n", cambio(3.0));
 
     return 0;
 }
