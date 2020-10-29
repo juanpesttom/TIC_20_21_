@@ -1,40 +1,26 @@
 #include <stdio.h>
-#include <string.h>
 
-void swap(char p1, char p2)
+void numero_a_cadena(int numero, char *vector)
 {
-    char c;
+    int i, len, num_copia;
+            
+    num_copia = numero;
+    for (i = -1; num_copia != 0; i++)
+        num_copia = num_copia/10;
+    len = i;
 
-    c = p1;
-    p1 = p2;
-    p2 = c;
-}
-void reverse(char *p)
-{
-    int i, j;
-    
-    i = 0;
-    j = strlen(p)-1;
-
-    while (i < j)
-        swap(p[i++], p[j--]);
-}
-
-char *itos(int n, char *p)
-{
-    int i = 0;
-
-    while (n != 0)
+    for (i; numero != 0; i--)
     {
-        p[i++] = (n % 10) + '0';
-        n /= 10;
+        vector[i] = numero % 10 + '0';
+        numero = numero / 10;                             
     }
-    p[i] = '\0';
-    return p;
+    vector[++len] = '\0';                    
 }
-int main(int argc, char *argv[])
+
+int main(void)
 {
-    char arr[20];
-    printf("%s\n", itos(123, arr));
-    return 0;
+    char vector[6];
+    numero_a_cadena(25565,vector);
+    printf("%s\n", vector);            
 }
+
