@@ -1,26 +1,37 @@
 #include <stdio.h>
 #include <string.h>
 
-void swap(char *p1, char *p2)
-{
-    char p[strlen(p1+1)];
-
-    strcpy(p, p1);
-    strcpy(p1, p2);
-    strcpy(p2, p);
-    
-    
-}
 void bubblesort(char **p)
 {
-    int i, j;
+    int i, j, n = 10;
+    char *aux;
 
-    for (i = 1; i < 10; i++)
-        for (j = 0; j < 10-i-1; j++)
+    for (i = 1; i < n; i++)
+        for (j = 0; j < (n-i); j++)
             if (strlen(p[j]) > strlen(p[j+1]))
-                swap(p[j], p[j+1]);
+            {
+                aux = p[j];
+                p[j] = p[j+1];
+                p[j+1] = aux;
+            }
 }
 int main(int argc, char *argv[])
 {
+    int i;
+    char *M[10] = {
+        "aaaaaaaaaa",
+        "aaaaaaaaa",
+        "aaaaaaaa",
+        "aaaaaaa",
+        "aaaaaa",
+        "aaaaa",
+        "aaaa",
+        "aaa",
+        "aa",
+        "a",
+    };
+    bubblesort(M);
+    for (i = 0; i < 10; i++)
+            puts(M[i]);
     return 0;
 }
